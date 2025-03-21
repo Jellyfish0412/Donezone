@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DoneZone - Home</title>
+    <link rel="stylesheet" href="HomePage.css">
+    <script src="Note.js" defer></script> <!-- 引入笔记管理逻辑 -->
+    <script src="HomePage.js" defer></script>
+</head>
+<body>
+    <div class="header">
+        <div class="logo"><img src="img/Donezone Logo.png" alt="DoneZone Logo"></div>
+        <div class="auth-buttons">
+            <button id="user-button">Login/Register</button>
+            <button id="logout-button" style="display: none;">Logout</button>
+        </div>
+    </div>
+    <div class="container">
+        <div class="sidebar">
+            <div class="profile">Guest</div>
+            <nav class="menu">
+                <a href="HomePage.html" class="active">Home</a>
+                <a href="Calendar.php">Calendar</a>
+                <a href="Note.html">Page/Note</a>
+                <a href="Task.html">Tasks</a>
+            </nav>
+            <div class="project-section">
+                <h3 class="project">My Project</h3>
+                <p>None</p>
+            </div>
+            <div class="export-section">
+                <h3 class="export">Export</h3>
+                <a href="Invite.html">Invite Member</a>
+            </div>
+        </div>
+        <div class="main-content">
+            <h1>Welcome to DoneZone</h1>
+            <h2>Explore our features</h2>
+            <div class="explore-cards">
+                <div class="card">
+                    <div class="card-img">
+                        <img src="img/calendar.jpg" alt="Calendar">
+                    </div>
+                    <div class="card-text">
+                        <a href="Calendar.php">Calendar</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-img">
+                        <img src="img/Notes.jpg" alt="Notes">
+                    </div>
+                    <div class="card-text">
+                        <a href="Note.html">Notes</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer">
+                <p>© 2023 DoneZone. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

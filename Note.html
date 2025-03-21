@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DoneZone - Notes</title>
+    <link rel="stylesheet" href="Note.css">
+</head>
+<body>
+    <!-- Fixed Header -->
+    <header class="header">
+        <div class="logo">
+            <img src="img/Donezone Logo.png" alt="DoneZone Logo">
+        </div>
+        <div class="auth-buttons">
+            <button id="user-button">Login/Register</button>
+            <button id="logoutBtn" style="display: none;">Logout</button>
+        </div>
+    </header>
+
+    <!-- Fixed Sidebar -->
+    <aside class="sidebar">
+        <div class="profile">Guest</div>
+        <nav class="menu">
+            <a href="HomePage.html">Home</a>
+            <a href="Calendar.php">Calendar</a>
+            <a href="Note.html" id="notesTab" class="active">Page/Note</a>
+            <a href="Task.html">Tasks</a>
+        </nav>
+        <div class="project-section">
+            <h3>My Notes</h3>
+            <ul id="noteList">
+                <li class="no-notes">No notes yet</li>
+            </ul>
+            <button id="addNoteBtn">Create New Note</button>
+        </div>
+        <div class="export-section">
+            <h3 class="export">Export</h3>
+            <a href="Invite.html">Invite Member</a>
+        </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+        <div id="notesContainer">
+            <div class="note-container">
+                <div class="note-header">
+                    <h3 class="note-title">Note Title</h3>
+                    <div class="note-actions">
+                        <button class="save-btn">Save</button>
+                        <button class="delete-btn">Delete</button>
+                    </div>
+                </div>
+                <textarea class="note-content">Note content...</textarea>
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <div id="titleModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Create New Note</h2>
+                <input type="text" id="newNoteTitle" placeholder="Note title">
+                <button id="confirmCreate">Create Note</button>
+            </div>
+        </div>
+    </main>
+
+    <script src="Note.js"></script>
+</body>
+</html>

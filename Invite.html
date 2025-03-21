@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DoneZone - Invite Members</title>
+    <link rel="stylesheet" href="Invite.css">
+    <script src="invite.js" defer></script>
+</head>
+<body>
+    <!-- Header Section -->
+    <div class="header">
+        <div class="logo">
+            <img src="img/Donezone Logo.png" alt="DoneZone Logo">
+        </div>
+        <div class="auth-buttons">
+            <button id="user-button">Login/Register</button>
+            <button id="logout-button" style="display: none;">Logout</button>
+        </div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="profile">Guest</div>
+            <nav class="menu">
+                <a href="HomePage.html">Home</a>
+                <a href="Calendar.php">Calendar</a>
+                <a href="Note.html">Notes</a>
+                <a href="Task.html">Tasks</a>
+            </nav>
+            <div class="export-section">
+                <h3 class="export">Export</h3>
+                <a href="Invite.html" class="active">Invite Member</a>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <h1>Invite Members</h1>
+            <!-- Note List -->
+            <div id="noteList" class="note-list">
+                <p>Loading notes...</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Invite Modal -->
+    <div id="inviteModal" class="modal">
+        <div class="modal-content">
+            <h2>Invite Member to <span id="noteTitle">Note</span></h2>
+            <input type="email" id="inviteUserInput" placeholder="Enter email">
+            <button id="inviteUserBtn">Invite</button>
+
+            <!-- Collaborators Section -->
+            <div id="collaboratorsContainer">
+                <button id="leaveNoteBtn" style="display: none;">Leave Note</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Modal -->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <h2>Edit Note</h2>
+            <h3 id="editTitle" class="note-title">Note Title</h3>
+            <textarea id="editContent" class="full-width-textarea" placeholder="Note Content"></textarea>
+            <div class="modal-actions">
+                <button id="saveNoteBtn">Save</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

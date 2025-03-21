@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DoneZone - Tasks</title>
+    <link rel="stylesheet" href="Task.css">
+    <script src="Task.js" defer></script>
+</head>
+<body>
+    <div class="header">
+        <div class="logo"><img src="img/Donezone Logo.png" alt="DoneZone Logo"></div>
+        <div class="auth-buttons">
+            <button id="user-button">Login/Register</button>
+            <button id="logout-button" style="display: none;">Logout</button>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- 侧边栏 -->
+        <div class="sidebar">
+            <div class="profile">Guest</div>
+            <nav class="menu">
+                <a href="HomePage.html">Home</a>
+                <a href="Calendar.php">Calendar</a>
+                <a href="Note.html">Page/Note</a>
+                <a href="Task.html" class="active">Tasks</a>
+            </nav>
+
+            <!-- 任务分类区域 -->
+            <div class="task-list">
+                <h3>My Tasks</h3>
+                <button id="addTaskBtn">+ New Task</button>
+                
+                <div class="task-categories">
+                    <div class="category">
+                        <h4>In-Progress</h4>
+                        <ul id="inProgressList" class="task-items"></ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="export-section">
+                <h3 class="export">Export</h3>
+                <a href="Invite.html">Invite Member</a>
+            </div>
+        </div>
+
+        <!-- 主内容区域 -->
+        <div class="main-content">
+            <h1>My Tasks</h1>
+            <div id="tasksContainer" class="tasks-section">
+                <!-- 任务动态加载 -->
+            </div>
+        </div>
+    </div>
+
+    <!-- 任务创建模态框 -->
+    <div id="taskModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Create New Task</h2>
+            <input type="text" id="newTaskTitle" placeholder="Task Title">
+            <button id="confirmCreateTask">Create</button>
+        </div>
+    </div>
+
+    <!-- 任务详情模态框 -->
+    <div id="taskDetail" class="task-detail-modal">
+        <div class="modal-content">
+            <span class="close-detail">&times;</span>
+            <h2 contenteditable="true" id="detailTitle"></h2>
+            <textarea id="detailContent" placeholder="Task description..."></textarea>
+            <button id="saveDetailBtn">Save Changes</button>
+        </div>
+    </div>
+</body>
+</html>

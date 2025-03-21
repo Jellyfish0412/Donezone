@@ -1,0 +1,516 @@
+/* ===================== 全局样式 ===================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+    font-family: Arial, sans-serif;
+    background: #f0f2f5;
+    overflow: auto;
+}
+
+/* ===================== Header 样式 ===================== */
+.header {
+    width: 100%;
+    height: 60px;
+    background: black;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    border: none;
+    box-shadow: none;
+}
+
+.logo img {
+    width: 60px;
+    height: auto;
+}
+
+.auth-buttons button {
+    background: black;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-right: 50px;
+    transition: transform 0.2s ease;
+}
+
+.auth-buttons button:hover {
+    transform: scale(1.05);
+}
+
+/* ===================== Container 样式 ===================== */
+.container {
+    display: flex;
+    width: 100%;
+    height: calc(100vh - 60px);
+    padding-top: 60px;
+    overflow: auto;
+}
+
+/* ===================== Sidebar 样式 ===================== */
+.sidebar {
+    width: 250px;
+    background: #f9f3f1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    scrollbar-width: none;
+}
+
+.sidebar::-webkit-scrollbar {
+    display: none;
+}
+
+.profile {
+    font-size: large;
+    font-weight: bold;
+    color: black;
+}
+
+.menu a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: black;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.menu a.active, 
+.menu a:hover {
+    background: #dcdcdc;
+}
+
+.project-section {
+    height: 300px;
+}
+
+.project-section p, .project {
+    display: none;
+    padding: 0 10px;
+    margin-top: 2px;
+    color: gray;
+}
+
+.project-section p,.project {
+    display: none;
+    padding: 0 10px;
+    margin-top: 2px;
+    color: gray;
+}
+
+.export {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: black;
+    margin-bottom: 10px;
+}
+
+
+.export-section a {
+    padding-top: 50px;
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: black;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+/* ===================== Logout Button 样式 ===================== */
+#logout-button {
+    background: black;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.3s;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#logout-button:hover {
+    background: #333;
+    transform: scale(1.05);
+}
+
+/* ===================== Main Content 样式 ===================== */
+.main-content {
+    flex: 1;
+    padding: 40px;
+    text-align: center;
+    overflow-y: auto;
+    background: #fff;
+}
+
+/* ===================== Calendar 样式 ===================== */
+.calendar-container {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 800px;
+    margin: auto;
+    width: 90%;
+}
+
+.weekdays-row, .date-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    grid-gap: 0;
+}
+
+.weekdays-row {
+    font-weight: bold;
+    background-color: white;
+}
+
+.weekday {
+    padding: 10px 0;
+    border-bottom: 2px solid #ddd;
+}
+
+.day, .empty {
+    text-align: center;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 0;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin: -1px;
+}
+
+.day:hover {
+    background-color: #f0f0f0;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.calendar-header button {
+    padding: 5px 10px;
+    border: none;
+    background: black;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.calendar-header button:hover {
+    background: #333;
+}
+
+/* ===================== Event Sidebar 样式 ===================== */
+.event-sidebar {
+    position: fixed;
+    top: 0;
+    right: -380px;
+    width: 320px;
+    height: 100%;
+    background: #fff;
+    box-shadow: -4px 0 15px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    transition: right 0.4s ease-in-out;
+    z-index: 1000;
+    overflow-y: auto;
+    border-radius: 15px 0 0 15px;
+}
+
+.event-sidebar.open {
+    right: 0;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 20px;
+    font-weight: bold;
+    color: #666;
+    cursor: pointer;
+    float: right;
+    transition: color 0.3s;
+}
+
+.close-btn:hover {
+    color: #ff4444;
+}
+
+.event-list {
+    margin-top: 20px;
+    border-top: 2px solid #ddd;
+    padding-top: 15px;
+}
+
+.event-item {
+    padding: 12px;
+    margin: 8px 0;
+    background: linear-gradient(135deg, #f7f7f7, #e0e0e0);
+    border-radius: 10px;
+    cursor: pointer;
+    position: relative;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, background 0.3s;
+}
+
+.event-item:hover {
+    background: linear-gradient(135deg, #e0e0e0, #cccccc);
+    transform: scale(1.02);
+}
+
+.delete-btn {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: black;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 6px 10px;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    display: none;
+    transition: background 0.3s;
+}
+
+.delete-btn:hover {
+    background: green;
+}
+
+.event-item:hover .delete-btn {
+    display: block;
+}
+
+/* ===================== Event Form 样式 ===================== */
+.event-form {
+    width: 260px;
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+}
+
+.event-form input,
+.event-form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+    transition: border 0.3s;
+}
+
+.event-form input:focus,
+.event-form textarea:focus {
+    border-color: #404346;
+}
+
+#save-event {
+    width: 100%;
+    padding: 12px;
+    margin-left: 15px;
+    background: black;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+#save-event:hover {
+    background: white;
+    color: black;
+    transform: scale(1.05);
+    box-shadow: 0px 6px 12px rgba(0, 91, 187, 0.3);
+}
+
+#save-event:active {
+    transform: scale(0.98);
+}
+
+/* ===================== 日历日期样式 ===================== */
+.day.today {
+    background: black;
+    color: white;
+}
+
+.day.past-event {
+    background: red;
+    color: white;
+}
+
+.day.has-event {
+    background: lightblue;
+}
+
+.day {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.day:hover {
+    background-color: #f0f0f0;
+}
+
+/* ===================== 用户信息样式 ===================== */
+.user-info {
+    position: relative;
+    display: none;
+}
+
+/* ===================== 过期日期且有事件的样式 ===================== */
+.day.past-event {
+    background: red;
+    color: white;
+}
+
+/* =============== 响应式设计 =============== */
+/* ===================== 移动端优化 ===================== */
+@media (max-width: 768px) {
+    /* 容器布局调整 */
+    .container {
+      flex-direction: column;
+      height: auto;
+      padding-top: 60px;
+    }
+  
+    /* 侧边栏调整为移动端顶部导航 */
+    .sidebar {
+      width: 100%;
+      height: auto;
+      position: relative;
+      top: 60px;
+      left: 0;
+      padding: 15px;
+      border-right: none;
+      border-bottom: 1px solid #e0e0e0;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    }
+  
+    /* 主内容区调整 */
+    .main-content {
+      margin-left: 0;
+      margin-top: 60px;
+      padding: 15px;
+      width: 100%;
+    }
+  
+    /* 日历容器优化 */
+    .calendar-container {
+      padding: 15px;
+      width: 100%;
+      max-width: 100%;
+      box-shadow: none;
+    }
+  
+    .weekdays-row, .date-grid {
+      grid-template-columns: repeat(7, 1fr);
+      font-size: 14px;
+    }
+  
+    .day, .empty {
+      padding: 8px;
+      font-size: 12px;
+    }
+  
+    /* 事件侧边栏优化 */
+    .event-sidebar {
+      width: 90%;
+      right: -100%;
+      border-radius: 15px 0 0 15px;
+    }
+  
+    .event-sidebar.open {
+      right: 0;
+    }
+  
+    .event-item {
+      padding: 10px;
+      font-size: 14px;
+    }
+  
+    .delete-btn {
+      padding: 4px 8px;
+      font-size: 10px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    /* 头部优化 */
+    .header {
+      height: 50px;
+      padding: 0 10px;
+    }
+  
+    .logo img {
+      width: 40px;
+    }
+  
+    .auth-buttons button {
+      padding: 8px 12px;
+      font-size: 14px;
+      margin-right: 10px;
+    }
+  
+    /* 主内容区进一步优化 */
+    .main-content {
+      padding: 10px;
+    }
+  
+    /* 日历日期单元格优化 */
+    .day, .empty {
+      padding: 6px;
+      font-size: 10px;
+    }
+  
+    /* 事件侧边栏进一步优化 */
+    .event-sidebar {
+      width: 100%;
+      border-radius: 0;
+    }
+  
+    .event-form {
+      width: 100%;
+      padding: 15px;
+    }
+  
+    .event-form input,
+    .event-form textarea {
+      padding: 10px;
+      font-size: 12px;
+    }
+  
+    #save-event {
+      padding: 10px;
+      font-size: 14px;
+    }
+  }

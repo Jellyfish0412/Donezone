@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Register - DoneZone</title>
+    <link rel="stylesheet" href="AuthPage.css">
+</head>
+<body>
+    <!-- Login Form -->
+    <div class="auth-container">
+        <img src="img/Donezone Logo.png" alt="DoneZone Logo" class="logo">
+        <h2>Welcome to DoneZone</h2>
+        <form class="auth-form" id="loginForm">
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+            <button type="button" class="register-btn" onclick="openModal()">Register</button>
+        </form>
+    </div>
+
+    <!-- Registration Modal -->
+    <div id="registerModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h2>Register</h2>
+            <form class="auth-form" id="registerForm">
+                <input type="text" name="full_name" placeholder="Full Name" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="password" name="password" placeholder="Password" required>
+                <input type="password" name="confirmPassword" placeholder="Confirm Password" required>
+                <button type="submit">Register</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="AuthPage.js"></script>
+</body>
+</html>

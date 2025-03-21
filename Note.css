@@ -1,0 +1,479 @@
+/* 全局重置 */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* 页面基础样式 */
+html, body {
+    height: 100%;
+    font-family: Arial, sans-serif;
+    background: #f0f2f5;
+    overflow: auto;
+}
+
+/* =============== 统一头部样式 =============== */
+.header {
+    width: 100%;
+    height: 60px;
+    background: black;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.logo img {
+    width: 60px; /* 固定尺寸 */
+    height: auto;
+}
+
+.auth-buttons button {
+    background: black !important;
+    color: white !important;
+    border: none !important;
+    padding: 10px 20px !important;
+    margin-right: 50px !important;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.auth-buttons button:hover {
+    transform: scale(1.05);
+    background: black !important;
+}
+
+/* =============== 统一侧边栏样式 =============== */
+.sidebar {
+    width: 250px;
+    background: #f9f3f1;
+    padding: 20px;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    height: calc(100vh - 60px);
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    scrollbar-width: none;
+}
+
+.sidebar::-webkit-scrollbar {
+    display: none;
+}
+
+.profile {
+    font-size: large; /* 与主页一致 */
+    font-weight: bold;
+    color: #333;
+}
+
+.menu a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: black;
+    border-radius: 5px;
+    transition: background 0.2s ease;
+}
+
+.menu a.active, 
+.menu a:hover {
+    background: #dcdcdc;
+}
+
+/* 统一项目列表样式 */
+.project-section h3 {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.project-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.project-section li {
+    padding: 10px;
+    background: transparent !important;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    transition: background 0.2s ease;
+    color: #666;
+}
+
+.project-section li:hover {
+    background: #e0e0e0 !important;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+.menu a, .export-section a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: black;
+    border-radius: 5px;
+    transition: background 0.2s ease;
+}
+
+.menu a.active, 
+.menu a:hover, 
+.export-section a:hover {
+    background: #dcdcdc;
+}
+
+.project-section {
+    height: 300px;
+}
+
+.project-section p {
+    padding: 0 10px;
+    margin-top: 2px;
+    color: gray;
+}
+
+.export {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: black;
+    margin-bottom: 10px;
+}
+
+/* =============== 主内容区 =============== */
+.main-content {
+    margin-left: 250px;
+    margin-top: 60px;
+    padding: 20px;
+    height: calc(100vh - 60px);
+    overflow-y: auto;
+    background: #fff;
+}
+
+.main-content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.main-content::-webkit-scrollbar-thumb {
+    background: #bbb;
+    border-radius: 10px;
+}
+
+/* =============== 笔记功能样式 =============== */
+#notesContainer {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.note-container {
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    transition: all 0.3s ease;
+}
+
+.note-container:hover {
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.note-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.note-actions {
+    display: flex;
+    gap: 10px;
+}
+
+/* =============== 按钮统一方案 =============== */
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.2s ease;
+}
+
+button:hover {
+    transform: scale(1.02);
+}
+
+.save-btn {
+    background: black;
+    color: white;
+}
+
+.delete-btn {
+    background: black;
+    color: white;
+}
+
+#addNoteBtn {
+    background: white;
+    color: black;
+    border: 1px solid black !important;
+}
+
+#addNoteBtn:hover {
+    background: black !important;
+    color: white !important;
+}
+
+/* =============== 响应式设计 =============== */
+@media (max-width: 768px) {
+    /* 侧边栏调整为顶部导航 */
+    .sidebar {
+      width: 100%;
+      height: auto;
+      position: relative;
+      top: 60px;
+      padding: 1rem;
+      border-right: none;
+      border-bottom: 1px solid #e0e0e0;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    }
+  
+    /* 主内容区下移 */
+    .main-content {
+      margin-left: 0;
+      margin-top: 120px;
+      padding: 1.5rem;
+    }
+  
+    /* 模态框宽度调整 */
+    .modal-content {
+      width: 95%;
+      max-width: none;
+    }
+  
+    /* 导航菜单调整为水平布局 */
+    .nav-menu {
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 0.25rem;
+    }
+  
+    .nav-link {
+      justify-content: center;
+      padding: 0.5rem;
+      font-size: 0.9rem;
+      
+      i {
+        display: none;
+      }
+    }
+  }
+  
+  @media (max-width: 480px) {
+    /* 头部紧凑布局 */
+    .header {
+      padding: 0 10px;
+      height: 50px;
+    }
+  
+    .logo {
+      width: 40px;
+      height: 40px;
+    }
+  
+    /* 认证按钮调整 */
+    .auth-buttons button {
+      padding: 8px 16px;
+      font-size: 14px;
+      margin-right: 10px;
+    }
+  
+    /* 主内容区进一步优化 */
+    .main-content {
+      padding: 10px;
+      margin-top: 110px;
+    }
+  
+    /* 任务容器紧凑布局 */
+    .task-container {
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+  
+    /* 任务操作按钮调整 */
+    .task-actions button {
+      padding: 4px 8px;
+      font-size: 12px;
+    }
+  
+    /* 模态框进一步优化 */
+    .modal-content {
+      padding: 15px;
+      
+      h2 {
+        font-size: 1.25rem;
+      }
+      
+      input,
+      textarea {
+        padding: 8px;
+        font-size: 14px;
+      }
+      
+      button {
+        padding: 8px 16px;
+        font-size: 14px;
+      }
+    }
+  }
+  
+  /* 移动端菜单切换按钮 */
+  .mobile-menu-toggle {
+    display: none;
+    
+    @media (max-width: 768px) {
+      display: block;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 1001;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+  }
+
+/* =============== 其他组件 =============== */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 1001;
+}
+
+.large-textarea {
+    height: 300px;
+    width: 100%;
+    resize: none;
+}
+
+/* 模态框背景遮罩 */
+#titleModal {
+    display: none; /* 默认隐藏 */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* 深色半透明背景 */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* 确保模态框在最上层 */
+}
+
+/* 模态框内容 */
+#titleModal .modal-content {
+    background-color: #1e1e1e; /* 深灰色背景 */
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    max-width: 400px;
+    animation: fadeIn 0.3s ease-in-out; /* 淡入动画 */
+    color: #ffffff; /* 白色文字 */
+}
+
+/* 关闭按钮 */
+#titleModal .close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 24px;
+    color: #888; /* 灰色关闭按钮 */
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+#titleModal .close:hover {
+    color: #ffffff; /* 悬停时变为白色 */
+}
+
+/* 标题 */
+#titleModal h2 {
+    margin: 0 0 20px;
+    font-size: 24px;
+    color: #ffffff; /* 白色标题 */
+    text-align: center;
+}
+
+/* 输入框 */
+#titleModal input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #444; /* 深灰色边框 */
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+    background-color: #2e2e2e; /* 深灰色背景 */
+    color: #ffffff; /* 白色文字 */
+    transition: border-color 0.3s ease;
+}
+
+#titleModal input[type="text"]:focus {
+    border-color: #ffffff; /* 聚焦时边框变为白色 */
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+/* 创建按钮 */
+#titleModal #confirmCreate {
+    width: 100%;
+    padding: 12px;
+    background-color: #333; /* 深灰色按钮 */
+    color: #ffffff; /* 白色文字 */
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#titleModal #confirmCreate:hover {
+    background-color: #555; /* 悬停时按钮变亮 */
+}
+
+/* 淡入动画 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 模态框激活状态 */
+#titleModal.active {
+    display: flex; /* 显示模态框 */
+}
+

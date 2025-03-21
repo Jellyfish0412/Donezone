@@ -1,0 +1,5 @@
+Array
+(
+    [note_title] => Test 2
+    [note_content] => Test 2 ...
+)
